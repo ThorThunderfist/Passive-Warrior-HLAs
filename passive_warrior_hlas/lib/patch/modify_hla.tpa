@@ -1,0 +1,68 @@
+DEFINE_ACTION_FUNCTION MODIFY_HLA
+	INT_VAR
+		// Internal consts
+		spl_column		= 1
+		allowed_column 	= 6
+		prereq_column	= 7
+		exclude_column	= 8
+
+		// Optional
+		// By default does not adjust NUM_ALLOWED
+		num_allowed		= 0
+
+	STR_VAR
+		// Required
+		// Prefixed (AP_/GA_) name of ability to modify
+		ability			= ~~
+
+		// Optional
+		// Prefixed (AP_/GA_) name of ability to replace
+		new_ability		= ~~
+
+BEGIN
+	COPY_EXISTING_REGEXP ~LU....2DA~ override
+		COUNT_2DA_COLS maxcols
+		COUNT_2DA_ROWS maxcols maxrows
+		READ_2DA_ENTRIES_NOW file_reader maxcols
+
+		FOR (row = 0; row < maxrows; ++row)
+		BEGIN
+			READ_2DA_ENTRY_FORMER file_reader row spl_column entry
+
+			PATCH_IF ~%entry%~ STRING_EQUAL_CASE ~%ability%~
+			BEGIN
+				PATCH_IF STRING_LENGTH ~%new_ability%~ > 0
+				BEGIN
+					// Convert the ABILITY resref as necessary
+					SET_2DA_ENTRY_LATER file_writer row spl_column ~%new_ability%~
+				END
+
+				PATCH_IF num_allowed
+				BEGIN
+					// Update NUM_ALLOWED
+					SET_2DA_ENTRY_LATER file_writer row allowed_column ~%num_allowed%~
+				END
+			END
+
+			PATCH_IF STRING_LENGTH ~%new_ability%~ > 0
+			BEGIN
+				READ_2DA_ENTRY_FORMER file_reader row prereq_column entry
+
+				PATCH_IF ~%entry%~ STRING_EQUAL_CASE ~%ability%~
+				BEGIN
+					// Convert the PREREQUISITE resref as necessary
+					SET_2DA_ENTRY_LATER file_writer row prereq_column ~%new_ability%~
+				END
+
+				READ_2DA_ENTRY_FORMER file_reader row exclude_column entry
+
+				PATCH_IF ~%entry%~ STRING_EQUAL_CASE ~%ability%~
+				BEGIN
+					// Convert the EXCLUDED_BY resref as necessary
+					SET_2DA_ENTRY_LATER file_writer row exclude_column ~%new_ability%~
+				END
+			END
+
+			SET_2DA_ENTRIES_NOW file_writer maxcols
+		END
+END

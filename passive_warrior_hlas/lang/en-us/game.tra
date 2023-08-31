@@ -1,0 +1,32 @@
+@0 = ~Whirlwind Attack
+This ability allows the warrior to unleash a flurry of super-fast blows. The ability permanently increases one's number of attacks per round by 1.~
+@1 = ~Greater Whirlwind Attack
+A more powerful version of the Whirlwind Attack, Greater Whirlwind gives the warrior 1 more attack per round.
+
+Requires: Whirlwind Attack~
+@2 = ~Deathblow
+The Deathblow ability allows the warrior to blow through the defenses of any lesser creature.  Any creature of 12th level or lower is instantly killed when struck by a critical hit from the warrior.~
+@3 = ~Greater Deathblow
+Like Deathblow, this ability allows the warrior to vanquish foes with a single blow.  Any creature has a 5% chance of being instantly killed when struck by a critical hit from the warrior.
+
+Requires: Deathblow~
+@4 = ~Resist Magic
+This ability allows the warrior to tap a great inner strength and fight off the effects of malevolent magic. The warrior's Magic Resistance is increased by 5%.~
+@5 = ~Critical Strike
+A high-level warrior's intimate knowledge of vital spots on opponents allows them to concentrate their attacks to strike vital areas more often. With this ability, to-hit rolls of 19 are critical hits and rolls of 1 are no longer critical misses.
+
+Requires: Power Attack~
+@6 = ~Power Attack
+Power Attacks allow the warrior to strike blows much more forcefully. All of the warrior's attacks strike for +5 damage.~
+@7 = ~Hardiness
+Calling upon hidden reserves of strength during times of danger, a warrior uses the Hardiness ability to gain 5% resistance to all forms of physical damage.~
+@8 = ~War Cry
+With a War Cry, the warrior emits a powerful yell that inspires all allies in a 15-ft. radius. For 1 round per 2 levels of the warrior, the War Cry increases movement speed and grants +2 bonuses to hit rolls, damage rolls, and AC.~
+@9 = ~Smite
+With the Smite ability, the warrior gains the ability to strike a mighty blow, stunning the opponent for 1 round on any critical hit.
+
+Large creatures such as a dragons or giants will not be stunned.
+
+Requires: Power Attack, Critical Strike~
+
+@508 = ~War Cry~

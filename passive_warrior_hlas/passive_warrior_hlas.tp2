@@ -1,0 +1,156 @@
+BACKUP ~passive_warrior_hlas/backup~
+AUTHOR ~Thor Thunderfist~
+VERSION ~0.1.0~
+
+ALWAYS
+	INCLUDE ~passive_warrior_hlas/lib/patch/macros.tpa~
+	INCLUDE ~passive_warrior_hlas/lib/patch/modify_hla.tpa~
+END
+
+LANGUAGE
+	~English~
+	~en-us~
+	~passive_warrior_hlas/lang/en-us/weidu.tra~
+	~passive_warrior_hlas/lang/en-us/game.tra~
+
+// Whirlwind Attack
+BEGIN @1001
+	COPY ~passive_warrior_hlas/spl/TTCL900.SPL~ override
+		SAY UNIDENTIFIED_DESC @0
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 1
+		STR_VAR
+			ability		= ~GA_SPCL900~
+			new_ability	= ~AP_TTCL900~
+	END
+
+// Greater Whirlwind Attack
+//BEGIN @1002
+	COPY ~passive_warrior_hlas/spl/TTCL901.SPL~ override
+		SAY UNIDENTIFIED_DESC @1
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 1
+		STR_VAR
+			ability		= ~GA_SPCL901~
+			new_ability	= ~AP_TTCL901~
+	END
+
+// Deathblow
+BEGIN @1003
+	COPY ~passive_warrior_hlas/spl/TTCL902A.SPL~ override
+	COPY ~passive_warrior_hlas/spl/TTCL902.SPL~ override
+		SAY UNIDENTIFIED_DESC @2
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 1
+		STR_VAR
+			ability		= ~GA_SPCL902~
+			new_ability	= ~AP_TTCL902~
+	END
+
+// Greater Deathblow
+//BEGIN @1004
+	COPY ~passive_warrior_hlas/spl/TTCL903A.SPL~ override
+	COPY ~passive_warrior_hlas/spl/TTCL903.SPL~ override
+		SAY UNIDENTIFIED_DESC @3
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 1
+		STR_VAR
+			ability		= ~GA_SPCL903~
+			new_ability	= ~AP_TTCL903~
+	END
+
+// Hardiness
+BEGIN @1008
+	COPY ~passive_warrior_hlas/spl/TTCL907.SPL~ override
+		SAY UNIDENTIFIED_DESC @7
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 10
+		STR_VAR
+			ability		= ~GA_SPCL907~
+			new_ability	= ~AP_TTCL907~
+	END
+
+// Resist Magic
+BEGIN @1005
+	COPY ~passive_warrior_hlas/spl/TTCL904.SPL~ override
+		SAY UNIDENTIFIED_DESC @4
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 10
+		STR_VAR
+			ability		= ~GA_SPCL904~
+			new_ability	= ~AP_TTCL904~
+	END
+
+// Power Attack
+BEGIN @1007
+	COPY ~passive_warrior_hlas/spl/TTCL906.SPL~ override
+		SAY UNIDENTIFIED_DESC @6
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 1
+		STR_VAR
+			ability		= ~GA_SPCL906~
+			new_ability	= ~AP_TTCL906~
+	END
+
+// Critical Strike
+//BEGIN @1006
+	COPY ~passive_warrior_hlas/spl/TTCL905.SPL~ override
+		SAY UNIDENTIFIED_DESC @5
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 1
+		STR_VAR
+			ability		= ~GA_SPCL905~
+			new_ability	= ~AP_TTCL905~
+	END
+
+// Smite
+//BEGIN @1010
+	COPY ~passive_warrior_hlas/spl/TTCL909A.SPL~ override
+	COPY ~passive_warrior_hlas/spl/TTCL909.SPL~ override
+		SAY UNIDENTIFIED_DESC @9
+	LAF MODIFY_HLA
+		INT_VAR
+			num_allowed	= 1
+		STR_VAR
+			ability		= ~GA_SPCL909~
+			new_ability	= ~AP_TTCL909~
+	END
+
+// War Cry
+BEGIN @1009
+	COPY ~passive_warrior_hlas/bam/TTWARCRY.BAM~ override
+	LAF cd_new_portrait_icon
+		INT_VAR
+			string = RESOLVE_STR_REF(@508)
+		STR_VAR
+			bam_file = ~TTWARCRY~
+		RET
+			icon
+	END
+	COPY ~passive_warrior_hlas/spl/TTCL908.SPL~ override
+		SAY UNIDENTIFIED_DESC @8
+		LPF ALTER_EFFECT
+			INT_VAR
+				match_opcode = 142
+				match_parameter2 = 36
+				parameter2 = icon
+		END
+		LPF CD_EXTEND-O-MATIC
+			INT_VAR
+				level_cap	= 50
+				step_dur	= 3
+				step_size	= 2
+		END
+	LAF MODIFY_HLA
+		STR_VAR
+			ability		= ~GA_SPCL908~
+			new_ability	= ~GA_TTCL908~
+	END
