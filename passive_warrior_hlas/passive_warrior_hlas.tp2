@@ -1,6 +1,6 @@
 BACKUP ~passive_warrior_hlas/backup~
 AUTHOR ~Thor Thunderfist~
-VERSION ~0.1.0~
+VERSION ~0.1.1~
 
 ALWAYS
 	INCLUDE ~passive_warrior_hlas/lib/patch/macros.tpa~
@@ -15,6 +15,7 @@ LANGUAGE
 
 // Whirlwind Attack
 BEGIN @1001
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL900.SPL~ override
 		SAY UNIDENTIFIED_DESC @0
 	LAF MODIFY_HLA
@@ -39,6 +40,7 @@ BEGIN @1001
 
 // Deathblow
 BEGIN @1003
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL902A.SPL~ override
 	COPY ~passive_warrior_hlas/spl/TTCL902.SPL~ override
 		SAY UNIDENTIFIED_DESC @2
@@ -65,6 +67,7 @@ BEGIN @1003
 
 // Hardiness
 BEGIN @1008
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL907.SPL~ override
 		SAY UNIDENTIFIED_DESC @7
 	LAF MODIFY_HLA
@@ -77,6 +80,7 @@ BEGIN @1008
 
 // Resist Magic
 BEGIN @1005
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL904.SPL~ override
 		SAY UNIDENTIFIED_DESC @4
 	LAF MODIFY_HLA
@@ -89,6 +93,7 @@ BEGIN @1005
 
 // Power Attack
 BEGIN @1007
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL906.SPL~ override
 		SAY UNIDENTIFIED_DESC @6
 	LAF MODIFY_HLA
@@ -126,6 +131,7 @@ BEGIN @1007
 
 // War Cry
 BEGIN @1009
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 	COPY ~passive_warrior_hlas/bam/TTWARCRY.BAM~ override
 	LAF cd_new_portrait_icon
 		INT_VAR
