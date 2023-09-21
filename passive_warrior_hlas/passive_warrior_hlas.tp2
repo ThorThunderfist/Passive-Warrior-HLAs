@@ -1,6 +1,6 @@
 BACKUP ~passive_warrior_hlas/backup~
 AUTHOR ~Thor Thunderfist~
-VERSION ~1.0.0~
+VERSION ~1.0.1~
 
 ALWAYS
 	INCLUDE ~passive_warrior_hlas/lib/patch/macros.tpa~

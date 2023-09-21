@@ -20,7 +20,7 @@ DEFINE_ACTION_FUNCTION MODIFY_HLA
 		new_ability		= ~~
 
 BEGIN
-	COPY_EXISTING_REGEXP ~LU....2DA~ override
+	COPY_EXISTING_REGEXP ~LU.*\.2DA~ override
 		COUNT_2DA_COLS maxcols
 		COUNT_2DA_ROWS maxcols maxrows
 		READ_2DA_ENTRIES_NOW file_reader maxcols
