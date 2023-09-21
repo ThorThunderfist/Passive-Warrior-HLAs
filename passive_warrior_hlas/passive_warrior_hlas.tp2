@@ -15,7 +15,7 @@ LANGUAGE
 
 // Whirlwind Attack
 BEGIN @1001
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL900.SPL~ override
 		SAY UNIDENTIFIED_DESC @0
 	LAF MODIFY_HLA
@@ -40,7 +40,7 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 
 // Deathblow
 BEGIN @1003
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL902A.SPL~ override
 	COPY ~passive_warrior_hlas/spl/TTCL902.SPL~ override
 		SAY UNIDENTIFIED_DESC @2
@@ -67,7 +67,7 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 
 // Hardiness
 BEGIN @1008
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL907.SPL~ override
 		SAY UNIDENTIFIED_DESC @7
 	LAF MODIFY_HLA
@@ -80,7 +80,7 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 
 // Resist Magic
 BEGIN @1005
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL904.SPL~ override
 		SAY UNIDENTIFIED_DESC @4
 	LAF MODIFY_HLA
@@ -93,7 +93,7 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 
 // Power Attack
 BEGIN @1007
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @1100
 	COPY ~passive_warrior_hlas/spl/TTCL906.SPL~ override
 		SAY UNIDENTIFIED_DESC @6
 	LAF MODIFY_HLA
@@ -131,7 +131,7 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
 
 // War Cry
 BEGIN @1009
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1100
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @1100
 	COPY ~passive_warrior_hlas/bam/TTWARCRY.BAM~ override
 	LAF cd_new_portrait_icon
 		INT_VAR
